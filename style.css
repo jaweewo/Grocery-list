@@ -1,0 +1,27 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg,#9c27b0,#31d5eb);
+}
+.container
+{
+    position: relative;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.container .box
+{
+    
+}
