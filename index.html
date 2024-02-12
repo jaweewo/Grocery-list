@@ -1,21 +1,65 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content ="IE-edge">
-	<meta name="viewport" content="width=device-width">
-	<title>DeleHouse - Shopping Cart</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de la Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #list-container {
+            margin-top: 20px;
+        }
+        #list-items {
+            list-style-type: none;
+            padding: 0;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-	<div class="container">
-		<div class="box">
-			<h2>Lista de la compra</h2>
-			<form id="grocery">
-				<input id="writeLIst" type="text" placeholder="Introduzca producto a añadir" required>
-				<button>Añadir</button>
-			</form>
-		</div>
-	</div>
+    <h1>Lista de la Compra</h1>
+    <div id="list-container">
+        <ul id="list-items"></ul>
+        <input type="text" id="new-item" placeholder="Agregar nuevo ítem">
+        <button onclick="addItem()">Agregar</button>
+    </div>
+
+    <script>
+        function addItem() {
+            var newItemInput = document.getElementById("new-item");
+            var newItemValue = newItemInput.value.trim();
+            
+            if (newItemValue === "") {
+                alert("Por favor, ingresa un ítem válido.");
+                return;
+            }
+
+            var listItem = document.createElement("li");
+            listItem.className = "item";
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            listItem.appendChild(checkbox);
+
+            var textNode = document.createTextNode(newItemValue);
+            listItem.appendChild(textNode);
+
+            var list = document.getElementById("list-items");
+            list.appendChild(listItem);
+
+            newItemInput.value = "";
+        }
+    </script>
 </body>
 </html>
